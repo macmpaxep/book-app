@@ -1,21 +1,42 @@
+import Link from "next/link";
 import Logo from "./Logo";
 
 const columns = [
   {
     title: "Платформа",
-    links: ["Как это работает", "Монетизация", "Тарифы", "Мобильное приложение"],
+    links: [
+      { label: "Как это работает", href: "/#how-it-works" },
+      { label: "Монетизация", href: "/royalty-guide" },
+      { label: "Тарифы", href: "/#pricing" },
+      { label: "Мобильное приложение", href: "/mobile-app" },
+    ],
   },
   {
     title: "Авторам",
-    links: ["Начать публиковать", "Гайд по роялти", "AI-инструменты", "Истории успеха"],
+    links: [
+      { label: "Начать публиковать", href: "/start" },
+      { label: "Гайд по роялти", href: "/royalty-guide" },
+      { label: "AI-инструменты", href: "/ai-tools" },
+      { label: "Истории успеха", href: "/success-stories" },
+    ],
   },
   {
     title: "Компания",
-    links: ["О нас", "Карьера", "Пресс-центр", "Блог"],
+    links: [
+      { label: "О нас", href: "/about" },
+      { label: "Карьера", href: "/careers" },
+      { label: "Пресс-центр", href: "/press" },
+      { label: "Блог", href: "/blog" },
+    ],
   },
   {
     title: "Поддержка",
-    links: ["Центр помощи", "Контакты", "Условия использования", "Политика конфиденциальности"],
+    links: [
+      { label: "Центр помощи", href: "/help" },
+      { label: "Контакты", href: "/#contact" },
+      { label: "Условия использования", href: "/terms" },
+      { label: "Политика конфиденциальности", href: "/privacy" },
+    ],
   },
 ];
 
@@ -47,13 +68,13 @@ export default function Footer() {
               <h4 className="text-sm font-semibold text-zinc-950 dark:text-white">{col.title}</h4>
               <ul className="mt-4 space-y-3">
                 {col.links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
                       className="text-sm text-zinc-600 hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400"
                     >
-                      {link}
-                    </a>
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -66,15 +87,15 @@ export default function Footer() {
             © {new Date().getFullYear()} xread Inc. Все права защищены.
           </p>
           <div className="flex gap-6 text-xs text-zinc-500 dark:text-zinc-500">
-            <a href="#" className="hover:text-indigo-600">
+            <Link href="/terms" className="hover:text-indigo-600">
               Условия
-            </a>
-            <a href="#" className="hover:text-indigo-600">
+            </Link>
+            <Link href="/privacy" className="hover:text-indigo-600">
               Конфиденциальность
-            </a>
-            <a href="#" className="hover:text-indigo-600">
+            </Link>
+            <Link href="/cookies" className="hover:text-indigo-600">
               Cookies
-            </a>
+            </Link>
           </div>
         </div>
       </div>

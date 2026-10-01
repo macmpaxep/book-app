@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const plans = [
   {
     name: "Starter",
@@ -72,8 +74,8 @@ export default function Pricing() {
                   </li>
                 ))}
               </ul>
-              <a
-                href="#start"
+              <Link
+                href="/start"
                 className={`mt-8 block rounded-full px-6 py-3 text-center text-sm font-semibold transition ${
                   plan.highlighted
                     ? "bg-indigo-600 text-white hover:bg-indigo-500"
@@ -81,7 +83,7 @@ export default function Pricing() {
                 }`}
               >
                 Выбрать план
-              </a>
+              </Link>
             </div>
           ))}
         </div>

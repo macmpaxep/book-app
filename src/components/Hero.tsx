@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const stats = [
   { value: "120K+", label: "авторов по всему миру" },
@@ -26,12 +27,12 @@ export default function Hero() {
             честные роялти без посредников.
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <a
-              href="#start"
+            <Link
+              href="/start"
               className="rounded-full bg-indigo-600 px-8 py-3.5 text-center text-sm font-semibold text-white shadow-lg shadow-indigo-600/20 transition hover:bg-indigo-500"
             >
               Опубликовать книгу бесплатно
-            </a>
+            </Link>
             <a
               href="#how-it-works"
               className="rounded-full border border-zinc-300 px-8 py-3.5 text-center text-sm font-semibold text-zinc-800 transition hover:border-zinc-400 dark:border-zinc-700 dark:text-zinc-200"

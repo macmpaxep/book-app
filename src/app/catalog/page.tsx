@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import PageHero from "@/components/PageHero";
+
+export const metadata: Metadata = {
+  title: "Каталог книг — xread",
+  description: "Все книги авторов xread: разные жанры, языки и страны.",
+};
 
 const books = [
   {
@@ -76,28 +82,17 @@ const books = [
   },
 ];
 
-export default function BooksShowcase() {
+export default function CatalogPage() {
   return (
-    <section id="books" className="bg-zinc-50 py-24 dark:bg-zinc-950">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
-          <div>
-            <h2 className="text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl dark:text-white">
-              Книги наших авторов
-            </h2>
-            <p className="mt-4 max-w-xl text-lg text-zinc-600 dark:text-zinc-400">
-              Разные жанры, языки и страны — одна платформа для публикации и продаж.
-            </p>
-          </div>
-          <Link
-            href="/catalog"
-            className="whitespace-nowrap text-sm font-semibold text-indigo-600 hover:text-indigo-500"
-          >
-            Весь каталог →
-          </Link>
-        </div>
+    <>
+      <PageHero
+        kicker="📚 Каталог"
+        title="Все книги xread"
+        description="Разные жанры, языки и страны — одна платформа для публикации и продаж."
+      />
 
-        <div className="mt-14 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
+      <section className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+        <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
           {books.map((book) => (
             <div key={book.title} className="group">
               <div className="relative aspect-[3/4.2] overflow-hidden rounded-2xl shadow-md transition group-hover:-translate-y-1 group-hover:shadow-xl">
@@ -110,18 +105,20 @@ export default function BooksShowcase() {
                 />
                 <span className="absolute right-3 top-3 text-lg drop-shadow">{book.country}</span>
               </div>
-              <div className="mt-3 flex items-center justify-between px-1">
-                <span className="flex items-center gap-1 text-sm font-medium text-zinc-700 dark:text-zinc-300">
-                  ⭐ {book.rating}
-                </span>
-                <span className="text-sm font-semibold text-zinc-950 dark:text-white">
-                  {book.price}
-                </span>
+              <div className="mt-3 px-1">
+                <p className="truncate text-sm font-semibold text-zinc-950 dark:text-white">{book.title}</p>
+                <p className="truncate text-xs text-zinc-500 dark:text-zinc-400">{book.author}</p>
+                <div className="mt-1 flex items-center justify-between">
+                  <span className="flex items-center gap-1 text-sm font-medium text-zinc-700 dark:text-zinc-300">
+                    ⭐ {book.rating}
+                  </span>
+                  <span className="text-sm font-semibold text-zinc-950 dark:text-white">{book.price}</span>
+                </div>
               </div>
             </div>
           ))}
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
