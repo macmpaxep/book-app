@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Тетрадь в клетку — роман о бизнесе, наследии и жизни</title>
-<meta name="description" content="«Тетрадь в клетку» — роман-дневник Айкена Муратовича о деньгах, страхе и трёх чайниках чая. Цена 10 000 ₸. Заказать в Telegram.">
+<meta name="description" content="«Тетрадь в клетку» — роман-дневник Айкена Муратовича о деньгах, страхе и трёх чайниках чая. Цена 10 000 тг вместо 15 000 тг. Заказать в Telegram.">
 <meta property="og:title" content="Тетрадь в клетку — роман">
 <meta property="og:description" content="Наследие, бизнес и жизнь. Слово наследника.">
 <meta property="og:image" content="https://xread.me/books/cover-id1.jpg">
@@ -135,6 +135,21 @@
   .price-box li::before{content:"✓";position:absolute;left:0;color:var(--gold)}
   .price-note{margin-top:16px;font-size:.92rem;color:var(--muted)}
 
+  /* OFFER TIMER */
+  .badge{display:inline-block;background:var(--red);color:#fff;font-family:'Oswald',sans-serif;letter-spacing:.1em;text-transform:uppercase;font-size:.85rem;padding:5px 14px;border-radius:3px;margin-bottom:10px}
+  .old{font-family:'Oswald',sans-serif;font-size:1.5rem;color:var(--muted);text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:2px}
+  s[data-old]{color:var(--muted);text-decoration-color:var(--red)}
+  .timer-wrap{margin:6px 0 26px}
+  .timer-label{font-size:.9rem;color:var(--muted);margin-bottom:10px}
+  .timer{display:flex;justify-content:center;align-items:flex-start;gap:8px}
+  .timer div{background:#000;border:1px solid var(--gold-deep);border-radius:6px;min-width:76px;padding:10px 6px 8px}
+  .timer span{display:block;font-family:'Oswald',sans-serif;font-size:2.4rem;font-weight:700;line-height:1;color:var(--gold-light);font-variant-numeric:tabular-nums}
+  .timer i{display:block;font-style:normal;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  .timer em{font-style:normal;color:var(--gold);font-size:2rem;line-height:62px}
+  .expired{color:var(--gold-light);font-family:'Oswald',sans-serif;font-size:1.1rem;letter-spacing:.04em;margin-bottom:24px}
+  .sticky small{display:block;font-family:'PT Serif',serif;font-size:.7rem;color:var(--muted);line-height:1.2}
+  .sticky .p{line-height:1.15}
+
   /* FAQ */
   .faq{max-width:760px;margin:0 auto}
   details{border-bottom:1px solid var(--line);padding:20px 0}
@@ -184,7 +199,7 @@
         <a class="btn" href="https://t.me/vecceo" target="_blank" rel="noopener noreferrer" data-umami-event="order-click-hero">Заказать книгу</a>
         <a class="btn ghost" href="#excerpt" data-umami-event="read-excerpt-click">Читать отрывок</a>
       </div>
-      <p class="note">10 000 ₸ · заказ и оплата через Telegram</p>
+      <p class="note"><s data-old>15 000</s> <b data-price>10 000</b> тг · <span data-hero-sub>скидка только сегодня</span> · заказ через Telegram</p>
     </div>
     <div class="cover">
       <img src="/books/book-3d-id1.webp" alt="Книга «Тетрадь в клетку»" width="772" height="926">
@@ -254,7 +269,20 @@
   <div class="wrap">
     <div class="price-box">
       <div class="eyebrow">Цена</div>
-      <div class="price gold-text">10 000<small>₸</small></div>
+      <div class="badge" data-timer-wrap>Скидка −33%</div>
+      <div class="old" data-old>15 000 тг</div>
+      <div class="price gold-text"><span data-price>10 000</span><small>тг</small></div>
+      <div class="timer-wrap" data-timer-wrap>
+        <div class="timer-label">Цена действует ещё</div>
+        <div class="timer" aria-live="off">
+          <div><span id="tH">05</span><i>часов</i></div>
+          <em>:</em>
+          <div><span id="tM">00</span><i>минут</i></div>
+          <em>:</em>
+          <div><span id="tS">00</span><i>секунд</i></div>
+        </div>
+      </div>
+      <p class="expired" id="expiredMsg" hidden>Акция завершена. Цена книги — 15 000 тг.</p>
       <ul>
         <li>Роман «Тетрадь в клетку»</li>
         <li>Бизнес, наследие и жизнь в одной книге</li>
@@ -297,11 +325,48 @@
 </footer>
 
 <div class="sticky">
-  <span class="p">10 000 ₸</span>
+  <span class="p"><s data-old>15 000</s> <span data-price>10 000</span> тг <small id="stickyTimer"></small></span>
   <a class="btn" href="https://t.me/vecceo" target="_blank" rel="noopener noreferrer" data-umami-event="order-click-sticky">Заказать книгу</a>
 </div>
 
 <script>
+  (function(){
+    var HOURS = 5;
+    var KEY = 'xread_offer_end_id1';
+    var end = 0;
+    try {
+      end = parseInt(localStorage.getItem(KEY) || '0', 10);
+      if (!end) {
+        end = Date.now() + HOURS * 3600 * 1000;
+        localStorage.setItem(KEY, String(end));
+      }
+    } catch (e) { end = Date.now() + HOURS * 3600 * 1000; }
+
+    var hEl = document.getElementById('tH'),
+        mEl = document.getElementById('tM'),
+        sEl = document.getElementById('tS'),
+        stickyT = document.getElementById('stickyTimer');
+    function pad(n){ return n < 10 ? '0' + n : '' + n; }
+    function expire(){
+      document.querySelectorAll('[data-price]').forEach(function(el){ el.textContent = '15 000'; });
+      document.querySelectorAll('[data-old],[data-timer-wrap]').forEach(function(el){ el.style.display = 'none'; });
+      document.querySelectorAll('[data-hero-sub]').forEach(function(el){ el.textContent = 'акция завершена'; });
+      var msg = document.getElementById('expiredMsg'); if (msg) msg.hidden = false;
+      if (stickyT) stickyT.textContent = '';
+    }
+    function tick(){
+      var left = end - Date.now();
+      if (left <= 0) { expire(); return false; }
+      var s = Math.floor(left / 1000);
+      var h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), sec = s % 60;
+      hEl.textContent = pad(h); mEl.textContent = pad(m); sEl.textContent = pad(sec);
+      if (stickyT) stickyT.textContent = 'осталось ' + pad(h) + ':' + pad(m) + ':' + pad(sec);
+      return true;
+    }
+    if (tick()) {
+      var iv = setInterval(function(){ if (!tick()) clearInterval(iv); }, 1000);
+    }
+  })();
   (function(){
     var btn=document.getElementById('readMoreBtn');
     var more=document.getElementById('moreBox');
