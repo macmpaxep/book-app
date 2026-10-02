@@ -9,6 +9,23 @@
 <meta property="og:description" content="Наследие, бизнес и жизнь. Слово наследника.">
 <meta property="og:image" content="https://xread.me/books/cover-id1.jpg">
 <script defer src="https://analytics.xread.me/script.js" data-website-id="fbae7b3a-33a4-4f06-92d8-d2c1b936bbb2"></script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1846697113191453');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1846697113191453&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap">
@@ -160,6 +177,8 @@
   details p{margin-top:12px;color:var(--muted);font-size:1rem}
 
   footer{padding:48px 0 120px;text-align:center;color:var(--muted);font-size:.88rem}
+  .legal-note{margin-top:18px;font-size:11px;line-height:1.4;color:#7a7465}
+  .legal-note a{color:inherit;text-decoration:underline}
   footer .gold-text{font-family:'Oswald',sans-serif;letter-spacing:.14em;font-weight:700}
 
   /* STICKY MOBILE CTA */
@@ -321,6 +340,7 @@
   <div class="wrap">
     <div class="gold-text">ТЕТРАДЬ В КЛЕТКУ</div>
     <p style="margin-top:10px">Роман — произведение художественной литературы, основанное на реальных событиях. Имена персонажей изменены.</p>
+    <p class="legal-note">Мы используем cookie и пиксель Meta для рекламы. <a href="/privacy">Подробнее</a></p>
   </div>
 </footer>
 
@@ -367,6 +387,11 @@
       var iv = setInterval(function(){ if (!tick()) clearInterval(iv); }, 1000);
     }
   })();
+  document.querySelectorAll('[data-umami-event^="order-click"]').forEach(function(a){
+    a.addEventListener('click',function(){
+      if (window.fbq) fbq('track','Lead');
+    });
+  });
   (function(){
     var btn=document.getElementById('readMoreBtn');
     var more=document.getElementById('moreBox');
