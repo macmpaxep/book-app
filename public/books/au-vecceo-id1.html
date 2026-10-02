@@ -129,7 +129,7 @@
     box-shadow:0 0 80px -20px rgba(212,168,58,.35);
   }
   .price{font-size:clamp(3rem,9vw,4.6rem);font-weight:700;line-height:1;margin:6px 0 18px}
-  .price small{font-size:.45em;opacity:.8;margin-left:6px}
+  .price small{font-size:.45em;margin-left:8px;color:var(--gold-light);-webkit-text-fill-color:var(--gold-light)}
   .price-box ul{list-style:none;text-align:left;margin:24px auto 30px;max-width:22em;color:#d9d2bf}
   .price-box li{padding:7px 0 7px 30px;position:relative;font-size:1rem}
   .price-box li::before{content:"✓";position:absolute;left:0;color:var(--gold)}
@@ -271,7 +271,7 @@
       <div class="eyebrow">Цена</div>
       <div class="badge" data-timer-wrap>Скидка −33%</div>
       <div class="old" data-old>15 000 тг</div>
-      <div class="price gold-text"><span data-price>10 000</span><small>тг</small></div>
+      <div class="price"><span class="gold-text" data-price>10 000</span><small>тг</small></div>
       <div class="timer-wrap" data-timer-wrap>
         <div class="timer-label">Цена действует ещё</div>
         <div class="timer" aria-live="off">
