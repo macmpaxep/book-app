@@ -368,7 +368,21 @@ src="https://www.facebook.com/tr?id=1846697113191453&ev=PageView&noscript=1"
         sEl = document.getElementById('tS'),
         stickyT = document.getElementById('stickyTimer');
     function pad(n){ return n < 10 ? '0' + n : '' + n; }
+    function setOffer(state){
+      window.xreadOffer = state;
+      var src = '';
+      try { src = new URLSearchParams(location.search).get('utm_source') || ''; } catch (e) {}
+      var text = 'Здравствуйте! Хочу заказать книгу «Тетрадь в клетку» ' +
+        (state === 'discount' ? 'по акции за 10 000 тг.' : 'по цене 15 000 тг.') +
+        (src ? ' Источник: ' + src : '');
+      var href = 'https://t.me/vecceo?text=' + encodeURIComponent(text);
+      document.querySelectorAll('[data-umami-event^="order-click"]').forEach(function(a){
+        a.href = href;
+        a.setAttribute('data-umami-event-offer', state);
+      });
+    }
     function expire(){
+      setOffer('expired');
       document.querySelectorAll('[data-price]').forEach(function(el){ el.textContent = '15 000'; });
       document.querySelectorAll('[data-old],[data-timer-wrap]').forEach(function(el){ el.style.display = 'none'; });
       document.querySelectorAll('[data-hero-sub]').forEach(function(el){ el.textContent = 'акция завершена'; });
@@ -384,13 +398,14 @@ src="https://www.facebook.com/tr?id=1846697113191453&ev=PageView&noscript=1"
       if (stickyT) stickyT.textContent = 'осталось ' + pad(h) + ':' + pad(m) + ':' + pad(sec);
       return true;
     }
+    setOffer('discount');
     if (tick()) {
-      var iv = setInterval(function(){ if (!tick()) clearInterval(iv); }, 1000);
+      var iv =setInterval(function(){ if (!tick()) clearInterval(iv); }, 1000);
     }
   })();
   document.querySelectorAll('[data-umami-event^="order-click"]').forEach(function(a){
     a.addEventListener('click',function(){
-      if (window.fbq) fbq('track','Lead');
+      if (window.fbq) fbq('track','Lead',{offer: window.xreadOffer || 'discount'});
     });
   });
   (function(){
