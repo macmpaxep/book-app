@@ -102,6 +102,8 @@ src="https://www.facebook.com/tr?id=1846697113191453&ev=PageView&noscript=1"
 
   /* SECTIONS */
   section.block{padding:84px 0;border-bottom:1px solid var(--line)}
+  section.block.noline{border-bottom:0;padding-bottom:28px}
+  section.block.tight{padding-top:40px}
   .eyebrow{font-family:'Oswald',sans-serif;color:var(--gold);letter-spacing:.22em;font-size:.85rem;text-transform:uppercase;margin-bottom:12px}
   h2{font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.15;font-weight:700;margin-bottom:28px}
 
@@ -226,8 +228,22 @@ src="https://www.facebook.com/tr?id=1846697113191453&ev=PageView&noscript=1"
   </div>
 </header>
 
+<!-- 1.5. МИНИ-БЛОК ПЕРЕД ОТРЫВКОМ
+     Впишите свой текст в <p> ниже. Первая буква первого абзаца станет буквицей автоматически.
+     Нужен ещё абзац — скопируйте строку <p>…</p>. Заголовок и подпись правятся в <h2> и <div class="eyebrow">. -->
+<section class="block noline" id="intro">
+  <div class="wrap">
+    <div class="excerpt">
+      <div class="eyebrow">О книге</div>
+      <h2>Несколько слов перед чтением</h2>
+      <p class="drop">Здесь будет ваш текст: напишите два–три абзаца о том, что читатель найдёт в книге.</p>
+      <p>Второй абзац при необходимости. Если он не нужен, удалите эту строку.</p>
+    </div>
+  </div>
+</section>
+
 <!-- 2. ОТРЫВОК -->
-<section class="block" id="excerpt">
+<section class="block tight" id="excerpt">
   <div class="wrap">
     <div class="excerpt" id="excerptBox">
       <div class="eyebrow">Отрывок из книги</div>
