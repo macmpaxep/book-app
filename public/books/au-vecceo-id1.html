@@ -352,7 +352,7 @@ src="https://www.facebook.com/tr?id=1846697113191453&ev=PageView&noscript=1"
       <div class="tick">✓</div>
       <h3>Заявка отправлена</h3>
       <p>Спасибо! Мы свяжемся с вами по указанному телефону.</p>
-      <p class="alt">Хотите написать сами? <a href="https://wa.me/447882521876" target="_blank" rel="noopener noreferrer" data-umami-event="wa-after-lead">Открыть WhatsApp</a></p>
+      <p class="alt">Хотите написать сами? <a href="https://t.me/vecceo" target="_blank" rel="noopener noreferrer" data-umami-event="wa-after-lead">Открыть Telegram</a></p>
     </div>
   </div>
 </div>
@@ -436,7 +436,7 @@ src="https://www.facebook.com/tr?id=1846697113191453&ev=PageView&noscript=1"
         if(window.umami&&umami.track) umami.track('lead-submit',{source:src||'direct'});
       }).catch(function(){
         clearTimeout(timer);
-        showErr('Не удалось отправить заявку. Попробуйте ещё раз или <a href="https://wa.me/447882521876" target="_blank" rel="noopener noreferrer">напишите нам в WhatsApp</a>.');
+        showErr('Не удалось отправить заявку. Попробуйте ещё раз или <a href="https://t.me/vecceo" target="_blank" rel="noopener noreferrer">напишите нам в Telegram</a>.');
       }).then(function(){
         sending=false; submitEl.disabled=false; submitEl.textContent='Отправить заявку';
       });
