@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Тетрадь в клетку — роман о бизнесе, наследии и жизни</title>
-<meta name="description" content="«Тетрадь в клетку» — роман-дневник казахского бизнесмена: 30 лет опыта — от 90-х до наших дней. Бумажная книга, заказ в WhatsApp.">
-<meta property="og:title" content="Тетрадь в клетку — роман">
-<meta property="og:description" content="Наследие, бизнес и жизнь. Слово наследника.">
+<title>Тетрадь в клетку — роман-дневник казахского бизнесмена</title>
+<meta name="description" content="«Тетрадь в клетку» — роман-дневник казахского бизнесмена: от мешка сахара в 1992-м до наших дней. Бумажная книга, заказ в WhatsApp.">
+<meta property="og:title" content="Тетрадь в клетку — роман-дневник">
+<meta property="og:description" content="Пустой цех. Три тысячи в кармане. Два часа за чашкой чая. Что было дальше — в тетради.">
 <meta property="og:image" content="https://xread.me/books/cover-id1.jpg">
 <script defer src="https://analytics.xread.me/script.js" data-website-id="fbae7b3a-33a4-4f06-92d8-d2c1b936bbb2"></script>
 <!-- Meta Pixel Code -->
@@ -31,79 +31,39 @@ src="https://www.facebook.com/tr?id=1846697113191453&ev=PageView&noscript=1"
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap">
 <style>
   :root{
-    --bg:#0a0a0a;
-    --bg-2:#111111;
-    --card:#161616;
-    --gold:#d4a83a;
-    --gold-light:#f0cf72;
-    --gold-deep:#a57c1b;
-    --red:#a8231f;
-    --text:#ece6d6;
-    --muted:#a39d8c;
-    --line:#2a2417;
-    --wa:#25D366;
+    --bg:#0a0a0a; --bg-2:#111111; --card:#161616;
+    --gold:#d4a83a; --gold-light:#f0cf72; --gold-deep:#a57c1b;
+    --text:#ece6d6; --muted:#a39d8c; --line:#2a2417;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{
-    background:var(--bg);
-    color:var(--text);
-    font-family:'PT Serif',Georgia,serif;
-    font-size:18px;
-    line-height:1.7;
-    -webkit-font-smoothing:antialiased;
-  }
+  body{background:var(--bg);color:var(--text);font-family:'PT Serif',Georgia,serif;font-size:18px;line-height:1.7;-webkit-font-smoothing:antialiased}
   h1,h2,h3,.btn,.kicker,.price{font-family:'Oswald','Arial Narrow',sans-serif;text-transform:uppercase;letter-spacing:.02em}
   .wrap{max-width:1040px;margin:0 auto;padding:0 22px}
-  .gold-text{
-    background:linear-gradient(180deg,var(--gold-light),var(--gold) 55%,var(--gold-deep));
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-  }
-  .nw{white-space:nowrap}
+  .gold-text{background:linear-gradient(180deg,var(--gold-light),var(--gold) 55%,var(--gold-deep));-webkit-background-clip:text;background-clip:text;color:transparent}
 
-  .btn{
-    display:inline-flex;align-items:center;justify-content:center;gap:12px;
-    padding:16px 34px;border-radius:4px;border:0;cursor:pointer;
-    background:linear-gradient(180deg,var(--gold-light),var(--gold) 60%,var(--gold-deep));
-    color:#1a1303;font-weight:700;font-size:1.15rem;text-decoration:none;white-space:nowrap;
-    box-shadow:0 10px 30px -10px rgba(212,168,58,.55);
-    transition:transform .15s ease,box-shadow .15s ease,filter .15s ease;
-  }
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:16px 34px;border-radius:4px;border:0;cursor:pointer;
+    background:linear-gradient(180deg,var(--gold-light),var(--gold) 60%,var(--gold-deep));color:#1a1303;font-weight:700;font-size:1.15rem;text-decoration:none;white-space:nowrap;
+    box-shadow:0 10px 30px -10px rgba(212,168,58,.55);transition:transform .15s ease,box-shadow .15s ease,filter .15s ease}
   .btn:hover{transform:translateY(-2px);filter:brightness(1.08);box-shadow:0 16px 34px -10px rgba(212,168,58,.7)}
   .btn.ghost{background:transparent;color:var(--gold-light);border:1px solid var(--gold-deep);box-shadow:none}
   .btn svg{flex-shrink:0}
-  /* Иконка WhatsApp в кнопке */
   .wa{width:28px;height:28px;display:block;border-radius:7px;box-shadow:0 2px 6px rgba(0,0,0,.35)}
 
   /* HERO */
-  .hero{
-    position:relative;overflow:hidden;
-    border-bottom:1px solid var(--line);
-    background:#000;
-  }
-  .hero::before{
-    content:"";position:absolute;inset:-40px;
-    background:url('/books/cover-id1.jpg') center 30%/cover no-repeat;
-    filter:blur(18px) brightness(.35) saturate(1.1);
-    transform:scale(1.1);
-  }
-  .hero::after{
-    content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg,rgba(0,0,0,.35),var(--bg) 98%);
-  }
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:#000}
+  .hero::before{content:"";position:absolute;inset:-40px;background:url('/books/cover-id1.jpg') center 30%/cover no-repeat;filter:blur(18px) brightness(.35) saturate(1.1);transform:scale(1.1)}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),var(--bg) 98%)}
   .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding-top:64px;padding-bottom:84px}
   .brand{font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:.14em;color:var(--gold);font-size:.95rem;margin-bottom:44px;text-transform:uppercase}
   .kicker{display:inline-block;border:1px solid var(--gold-deep);color:var(--gold-light);padding:6px 16px;font-size:.85rem;letter-spacing:.2em;margin-bottom:26px}
   .hero h1{font-size:clamp(2.2rem,5.2vw,4rem);line-height:1.08;font-weight:700;text-transform:none;letter-spacing:0}
-  .hero .lead{margin-top:22px;font-size:1.2rem;color:#d9d2bf;max-width:30em}
-  .hero .actions{margin-top:34px;display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+  .hook{margin-top:24px;font-size:1.3rem;line-height:1.5;color:var(--gold-light);font-style:italic;max-width:26em;border-left:3px solid var(--gold);padding-left:18px}
+  .hero .lead{margin-top:20px;font-size:1.1rem;color:#d9d2bf;max-width:30em}
+  .hero .actions{margin-top:30px;display:flex;flex-wrap:wrap;gap:16px;align-items:center}
   .hero .note{margin-top:14px;font-size:.92rem;color:var(--muted)}
   .cover{justify-self:center;max-width:460px;width:100%}
-  .cover img{
-    width:100%;height:auto;display:block;
-    filter:drop-shadow(0 30px 40px rgba(0,0,0,.8)) drop-shadow(0 0 50px rgba(212,168,58,.18));
-  }
-  /* Две копии обложки: большая справа на компьютере, маленькая в тексте на телефоне */
+  .cover img{width:100%;height:auto;display:block;filter:drop-shadow(0 30px 40px rgba(0,0,0,.8)) drop-shadow(0 0 50px rgba(212,168,58,.18))}
   .cover--m{display:none}
 
   /* SECTIONS */
@@ -117,62 +77,34 @@ src="https://www.facebook.com/tr?id=1846697113191453&ev=PageView&noscript=1"
   .excerpt{max-width:720px;margin:0 auto}
   .excerpt .meta{color:var(--muted);font-style:italic;margin-bottom:22px}
   .excerpt p{margin-bottom:1.1em}
-  .excerpt p.drop::first-letter{
-    font-family:'Oswald',sans-serif;font-size:3.4rem;float:left;line-height:.9;
-    padding:6px 10px 0 0;color:var(--gold);font-weight:700;
-  }
+  .excerpt p.drop::first-letter{font-family:'Oswald',sans-serif;font-size:3.4rem;float:left;line-height:.9;padding:6px 10px 0 0;color:var(--gold);font-weight:700}
   .fade{position:relative}
-  .fade::after{
-    content:"";position:absolute;left:0;right:0;bottom:0;height:120px;
-    background:linear-gradient(180deg,transparent,var(--bg));
-    pointer-events:none;
-  }
+  .fade::after{content:"";position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(180deg,transparent,var(--bg));pointer-events:none}
   .more{display:none}
   .more.open{display:block}
   .excerpt.open .fade::after{display:none}
-  .pull{
-    margin:1.6em 0;padding:6px 0 6px 22px;border-left:3px solid var(--gold);
-    font-size:1.35rem;line-height:1.45;color:var(--gold-light);font-style:italic;
-  }
+  .pull{margin:1.6em 0;padding:6px 0 6px 22px;border-left:3px solid var(--gold);font-size:1.35rem;line-height:1.45;color:var(--gold-light);font-style:italic}
   .read-more-row{text-align:center;margin-top:10px}
   .after-excerpt{margin-top:34px;text-align:center}
+  .tease{color:var(--gold-light);font-style:italic}
 
-  /* BENEFITS — 4 карточки: 2×2 */
+  /* QUESTIONS */
   .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
   .card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:30px 26px}
   .card .num{font-family:'Oswald',sans-serif;color:var(--gold);font-size:2.2rem;font-weight:700;line-height:1}
-  .card h3{font-size:1.2rem;margin:14px 0 10px;color:#fff;letter-spacing:.04em}
+  .card h3{font-size:1.15rem;margin:14px 0 10px;color:#fff;letter-spacing:.03em;line-height:1.3}
   .card p{color:var(--muted);font-size:1rem;line-height:1.6}
   .quote-line{margin-top:44px;text-align:center;font-size:1.45rem;font-style:italic;color:var(--gold-light);max-width:34em;margin-inline:auto;line-height:1.45}
   .quote-line cite{display:block;margin-top:8px;font-size:.95rem;color:var(--muted);font-style:normal}
 
   /* PRICE */
-  .price-box{
-    max-width:560px;margin:0 auto;text-align:center;
-    background:linear-gradient(180deg,#171309,#0d0d0d);
-    border:1px solid var(--gold-deep);border-radius:8px;padding:46px 32px;
-    box-shadow:0 0 80px -20px rgba(212,168,58,.35);
-  }
+  .price-box{max-width:560px;margin:0 auto;text-align:center;background:linear-gradient(180deg,#171309,#0d0d0d);border:1px solid var(--gold-deep);border-radius:8px;padding:46px 32px;box-shadow:0 0 80px -20px rgba(212,168,58,.35)}
   .price{font-size:clamp(3rem,9vw,4.6rem);font-weight:700;line-height:1;margin:6px 0 18px;white-space:nowrap}
   .price small{font-size:.45em;margin-left:8px;color:var(--gold-light);-webkit-text-fill-color:var(--gold-light)}
   .price-box ul{list-style:none;text-align:left;margin:24px auto 30px;max-width:22em;color:#d9d2bf}
   .price-box li{padding:7px 0 7px 30px;position:relative;font-size:1rem}
   .price-box li::before{content:"✓";position:absolute;left:0;color:var(--gold)}
   .price-note{margin-top:16px;font-size:.92rem;color:var(--muted)}
-
-  /* OFFER TIMER */
-  .badge{display:inline-block;background:var(--red);color:#fff;font-family:'Oswald',sans-serif;letter-spacing:.1em;text-transform:uppercase;font-size:.85rem;padding:5px 14px;border-radius:3px;margin-bottom:10px}
-  .old{font-family:'Oswald',sans-serif;font-size:1.5rem;color:var(--muted);text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:2px}
-  s[data-old]{color:var(--muted);text-decoration-color:var(--red);white-space:nowrap}
-  [data-price]{white-space:nowrap}
-  .timer-wrap{margin:6px 0 26px}
-  .timer-label{font-size:.9rem;color:var(--muted);margin-bottom:10px}
-  .timer{display:flex;justify-content:center;align-items:flex-start;gap:8px}
-  .timer div{background:#000;border:1px solid var(--gold-deep);border-radius:6px;min-width:76px;padding:10px 6px 8px}
-  .timer span{display:block;font-family:'Oswald',sans-serif;font-size:2.4rem;font-weight:700;line-height:1;color:var(--gold-light);font-variant-numeric:tabular-nums}
-  .timer i{display:block;font-style:normal;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:6px}
-  .timer em{font-style:normal;color:var(--gold);font-size:2rem;line-height:62px}
-  .expired{color:var(--gold-light);font-family:'Oswald',sans-serif;font-size:1.1rem;letter-spacing:.04em;margin-bottom:24px}
 
   /* FAQ */
   .faq{max-width:760px;margin:0 auto}
@@ -189,15 +121,8 @@ src="https://www.facebook.com/tr?id=1846697113191453&ev=PageView&noscript=1"
   footer .gold-text{font-family:'Oswald',sans-serif;letter-spacing:.14em;font-weight:700}
 
   /* STICKY MOBILE CTA */
-  .sticky{
-    position:fixed;left:0;right:0;bottom:0;z-index:50;
-    padding:10px 14px calc(10px + env(safe-area-inset-bottom));
-    background:rgba(10,10,10,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-    border-top:1px solid var(--gold-deep);
-    display:none;align-items:center;justify-content:space-between;gap:12px;
-  }
+  .sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(10,10,10,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--gold-deep);display:none;align-items:center;justify-content:space-between;gap:12px}
   .sticky .p{font-family:'Oswald',sans-serif;font-size:1.3rem;color:var(--gold-light);line-height:1.15;white-space:nowrap;min-width:0}
-  .sticky small{display:block;font-family:'PT Serif',serif;font-size:.7rem;color:var(--muted);line-height:1.2}
   .sticky .btn{padding:10px 14px 10px 18px;font-size:1.05rem;gap:10px;flex-shrink:0}
   .sticky .wa{width:26px;height:26px}
 
@@ -208,7 +133,7 @@ src="https://www.facebook.com/tr?id=1846697113191453&ev=PageView&noscript=1"
     .kicker{margin-bottom:16px}
     .cover--d{display:none}
     .cover--m{display:block;max-width:180px;margin:18px auto 4px}
-    .hero .lead{margin-top:14px;font-size:1.1rem}
+    .hook{font-size:1.15rem}
     .hero .actions{margin-top:22px;gap:12px}
     .hero .actions .btn{width:100%}
     .grid{grid-template-columns:1fr}
@@ -223,7 +148,6 @@ src="https://www.facebook.com/tr?id=1846697113191453&ev=PageView&noscript=1"
 </head>
 <body>
 
-<!-- Иконка WhatsApp (определяется один раз, используется в кнопках через <use>) -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="wa-icon" viewBox="0 0 32 32">
     <rect width="32" height="32" rx="8" fill="#25D366"/>
@@ -237,34 +161,34 @@ src="https://www.facebook.com/tr?id=1846697113191453&ev=PageView&noscript=1"
   <div class="wrap">
     <div>
       <div class="brand">xread · авторы</div>
-      <span class="kicker">Роман</span>
+      <span class="kicker">Роман-дневник</span>
       <h1 class="gold-text">«Тетрадь в клетку»</h1>
-      <!-- маленькая обложка — только на телефоне -->
       <div class="cover cover--m">
         <img src="/books/book-3d-id1.webp" alt="Книга «Тетрадь в клетку»" width="772" height="926">
       </div>
-      <p class="lead">Роман-дневник казахского бизнесмена: 30&nbsp;лет опыта — от&nbsp;90-х до наших дней</p>
+      <p class="hook">Пустой цех. Три тысячи в кармане. Два часа за чашкой чая, которые заработали больше, чем два месяца на заводе.</p>
+      <p class="lead">Роман-дневник казахского бизнесмена Айкена Муратовича: от мешка сахара в 1992-м до наших дней.</p>
       <div class="actions">
         <a class="btn" href="https://wa.me/447882521876" target="_blank" rel="noopener noreferrer" data-umami-event="order-click-hero" aria-label="Заказать в WhatsApp">Заказать<svg class="wa"><use href="#wa-icon"/></svg></a>
-        <a class="btn ghost" href="#intro" data-umami-event="read-excerpt-click">Читать отрывок</a>
+        <a class="btn ghost" href="#excerpt" data-umami-event="read-excerpt-click">Читать отрывок</a>
       </div>
-      <p class="note"><s data-old>14&nbsp;900</s> <b data-price>7&nbsp;900</b>&nbsp;тг · <span data-hero-sub>🎁 Хороший подарок близким — сыну или внуку, который начинает своё дело</span></p>
+      <p class="note"><b>7&nbsp;900</b>&nbsp;тг · бумажная книга, заказ в WhatsApp</p>
     </div>
-    <!-- большая обложка — только на компьютере, во второй колонке -->
     <div class="cover cover--d">
       <img src="/books/book-3d-id1.webp" alt="Книга «Тетрадь в клетку»" width="772" height="926">
     </div>
   </div>
 </header>
 
-<!-- 1.5. МИНИ-БЛОК ПЕРЕД ОТРЫВКОМ -->
+<!-- 1.5. ПРО ТЕТРАДЬ -->
 <section class="block noline" id="intro">
   <div class="wrap">
     <div class="excerpt">
       <div class="eyebrow">О книге</div>
-      <h2>Несколько слов перед чтением</h2>
-      <p class="drop">Я — племянник покойного казахстанского олигарха, решил выпустить эту книгу для вас, уважаемые читатели! В этой книге я решил собрать все наставления дяди, его принципы жизни, идеи и много полезных мыслей. Он вышел из простого ауыла и благодаря своему масштабному мышлению стал бизнесменом международного уровня.</p>
-      <p>Я уверен, эта книга поможет вам выйти на новый уровень, и я сам применяю его принципы в жизни, когда мне нужно справиться с проблемами. Его советы уникальны и универсальны, основаны на реальности и подходят всем. Особенно эта книга будет полезна тем, кто хочет поменять что-то в своей жизни.</p>
+      <h2>Одна тетрадь в клетку</h2>
+      <p class="drop">Айкен Муратович ведёт тетрадь. В ней нет учебниковой воды: сделки, ошибки, предательство, долги, чай и анекдоты. Каждая запись это короткая история и вывод, который он сам называет правилом.</p>
+      <p>Одно из них называется «правилом трёх чайников». Почему трёх и почему чайников, мы здесь не скажем. Зато можем показать, как выглядит одна из записей: зима 1992 года, пустой цех и мешок сахара.</p>
+      <p style="color:var(--muted);font-size:.95rem;font-style:italic">«Тетрадь в клетку» — художественное произведение. Айкен Муратович — литературный герой.</p>
     </div>
   </div>
 </section>
@@ -287,8 +211,9 @@ src="https://www.facebook.com/tr?id=1846697113191453&ev=PageView&noscript=1"
         <p>А теперь главное. Когда сахар привезли, купцы на барахолке предложили мне цену вдвое ниже той, на которую я рассчитывал. Всё моё тело кричало «бери и беги». Серик даже побледнел. А я сел, заказал чай и просидел там два часа, глядя, кто и по чём берёт конфеты. К вечеру я продал всё по цене в полтора раза выше. Два часа чая заработали мне больше, чем два месяца на заводе.</p>
         <p class="pull">«Рынок — это не гонка. Рынок — это чайхана, где выигрывает тот, кто успел увидеть больше других, пока другие бегают».</p>
         <p>Жене Зауре я купил в тот вечер сапоги. Она спросила: «А деньги откуда?» Я ответил: «Сладкие». Она надела сапоги и проходила в них по квартире до поздней ночи, делая вид, что убирается.</p>
+        <p class="tease">А что случилось с «правилом трёх чайников» и с тем самым директором, который не вернулся, читайте в тетради.</p>
         <div class="after-excerpt">
-          <p style="color:var(--muted);margin-bottom:18px">Это лишь небольшой отрывок из книги.</p>
+          <p style="color:var(--muted);margin-bottom:18px">Это лишь одна запись из тетради.</p>
           <a class="btn" href="https://wa.me/447882521876" target="_blank" rel="noopener noreferrer" data-umami-event="order-click-excerpt" aria-label="Заказать в WhatsApp">Заказать<svg class="wa"><use href="#wa-icon"/></svg></a>
         </div>
       </div>
@@ -300,31 +225,31 @@ src="https://www.facebook.com/tr?id=1846697113191453&ev=PageView&noscript=1"
   </div>
 </section>
 
-<!-- 3. ЧТО ВЫ ПОЛУЧИТЕ -->
+<!-- 3. ВОПРОСЫ, НА КОТОРЫЕ ОТВЕЧАЕТ ТЕТРАДЬ -->
 <section class="block" style="background:var(--bg-2)">
   <div class="wrap">
-    <div class="eyebrow">Что вы получите</div>
-    <h2>Книга-наставление для тех, кто строит своё дело</h2>
+    <div class="eyebrow">Что в тетради</div>
+    <h2>Вопросы, на которые отвечает тетрадь</h2>
     <div class="grid">
       <div class="card">
         <div class="num">01</div>
-        <h3>Опыт, который не купишь</h3>
-        <p>Тридцать лет бизнеса в одной тетради: от мешка сахара в девяносто втором до кризиса девяносто восьмого. Без учебниковой воды, только живые истории.</p>
+        <h3>Почему два часа за чаем стоили больше двух месяцев на заводе?</h3>
+        <p>Серик бледнел, купцы давили ценой, а Айкен заказал чай. Чем это кончилось, вы уже знаете из отрывка. Почему так вышло, объясняет книга.</p>
       </div>
       <div class="card">
         <div class="num">02</div>
-        <h3>Правила на всю жизнь</h3>
-        <p>«Правило трёх чайников», как выбирать партнёра, как прощать предательство и не терять лицо. Короткие, запоминающиеся уроки для бизнесменов и амбициозных молодых людей.</p>
+        <h3>Что такое «правило трёх чайников»?</h3>
+        <p>Одно из коротких правил тетради. Остальные тоже внутри: запоминающиеся уроки для тех, кто строит своё дело.</p>
       </div>
       <div class="card">
         <div class="num">03</div>
-        <h3>Живой язык и юмор</h3>
-        <p>Это не сухой учебник. Это роман с характером, где мудрость подана с улыбкой: читается легко, а остаётся надолго.</p>
+        <h3>Как выбирать партнёра, прощать предательство и не терять лицо?</h3>
+        <p>Без лекций и учебниковой воды. Живые истории, из которых вывод получается сам.</p>
       </div>
       <div class="card">
         <div class="num">04</div>
-        <h3>Подарок, который прочитают</h3>
-        <p>Не очередной галстук, а опыт человека, который прошёл 90-е. Подарите сыну, дочке или внуку то, что вы сами хотели бы знать в их возрасте.</p>
+        <h3>Что было между мешком сахара в 1992-м и кризисом 1998-го?</h3>
+        <p>Пустой цех, два вагона, долги, партнёры и ещё много того, о чём не пишут в учебниках по бизнесу.</p>
       </div>
     </div>
     <p class="quote-line">«Я хочу прийти последним, с чаем и с анекдотом».<cite>— из тетради Айкена Муратовича</cite></p>
@@ -336,25 +261,12 @@ src="https://www.facebook.com/tr?id=1846697113191453&ev=PageView&noscript=1"
   <div class="wrap">
     <div class="price-box">
       <div class="eyebrow">Цена</div>
-      <div class="badge" data-timer-wrap>Скидка −47%</div>
-      <div class="old" data-old>14&nbsp;900 тг</div>
-      <div class="price"><span class="gold-text" data-price>7&nbsp;900</span><small>тг</small></div>
-      <div class="timer-wrap" data-timer-wrap>
-        <div class="timer-label">Цена действует ещё</div>
-        <div class="timer" aria-live="off">
-          <div><span id="tH">05</span><i>часов</i></div>
-          <em>:</em>
-          <div><span id="tM">00</span><i>минут</i></div>
-          <em>:</em>
-          <div><span id="tS">00</span><i>секунд</i></div>
-        </div>
-      </div>
-      <p class="expired" id="expiredMsg" hidden>Акция завершена. Цена книги — 14&nbsp;900 тг.</p>
+      <div class="price"><span class="gold-text">7&nbsp;900</span><small>тг</small></div>
       <ul>
-        <li>Роман «Тетрадь в клетку»</li>
-        <li>Заказ напрямую у автора</li>
+        <li>Роман-дневник «Тетрадь в клетку»</li>
+        <li>Бумажная книга</li>
         <li>Можем подписать книгу для получателя</li>
-        <li>Шанс на участие в конкурсе на получение гранта в 100&nbsp;000&nbsp;$ на бизнес</li>
+        <li>Отправим сразу тому, кому дарите</li>
       </ul>
       <a class="btn" href="https://wa.me/447882521876" target="_blank" rel="noopener noreferrer" data-umami-event="order-click-price" aria-label="Заказать в WhatsApp">Заказать<svg class="wa"><use href="#wa-icon"/></svg></a>
       <p class="price-note">Напишите в WhatsApp: договоримся об оплате и доставке.</p>
@@ -369,16 +281,16 @@ src="https://www.facebook.com/tr?id=1846697113191453&ev=PageView&noscript=1"
       <div class="eyebrow">Частые вопросы</div>
       <h2>Ответы на вопросы</h2>
       <details>
-        <summary>Подойдёт ли книга в подарок?</summary>
-        <p>Да. Многие покупают её в подарок детям и внукам, которые начинают бизнес. Можем отправить сразу получателю — просто укажите адрес в WhatsApp.</p>
+        <summary>О чём эта книга?</summary>
+        <p>Это роман-дневник, художественное произведение. Его герой, казахстанский бизнесмен Айкен Муратович, ведёт тетрадь в клетку и записывает в неё сделки, ошибки и правила, к которым пришёл за тридцать лет, от 90-х до наших дней.</p>
       </details>
       <details>
-        <summary>О чём эта книга и кто её написал?</summary>
-        <p>Основное содержание книги — дневник покойного казахстанского миллиардера. Соавтором книги является его племянник.</p>
+        <summary>Подойдёт ли книга в подарок?</summary>
+        <p>Да, особенно тем, кто начинает своё дело. Можем подписать книгу для получателя и отправить сразу ему: просто укажите адрес в WhatsApp.</p>
       </details>
       <details>
         <summary>В каком виде книга и как быстро я её получу?</summary>
-        <p>Книга в бумажном варианте будет доставлена в зависимости от вашей локации.</p>
+        <p>Книга в бумажном варианте, срок доставки зависит от вашей локации. Точные сроки назовём в WhatsApp при заказе.</p>
       </details>
       <details>
         <summary>Для кого эта книга?</summary>
@@ -391,74 +303,29 @@ src="https://www.facebook.com/tr?id=1846697113191453&ev=PageView&noscript=1"
 <footer>
   <div class="wrap">
     <div class="gold-text">ТЕТРАДЬ В КЛЕТКУ</div>
-    <p style="margin-top:10px">Роман — произведение художественной литературы, основанное на реальных событиях. Имена персонажей изменены.</p>
+    <p style="margin-top:10px">Роман — произведение художественной литературы. Герои и события вымышлены.</p>
     <p class="legal-note">Мы используем cookie и пиксель Meta для рекламы. <a href="/privacy">Подробнее</a></p>
   </div>
 </footer>
 
 <div class="sticky">
-  <span class="p"><s data-old>14&nbsp;900</s> <span data-price>7&nbsp;900</span>&nbsp;тг <small id="stickyTimer"></small></span>
+  <span class="p">7&nbsp;900&nbsp;тг</span>
   <a class="btn" href="https://wa.me/447882521876" target="_blank" rel="noopener noreferrer" data-umami-event="order-click-sticky" aria-label="Заказать в WhatsApp">Заказать<svg class="wa"><use href="#wa-icon"/></svg></a>
 </div>
 
 <script>
   (function(){
-    var HOURS = 5;
-    var KEY = 'xread_offer_end_id1';
-    var end = 0;
-    try {
-      end = parseInt(localStorage.getItem(KEY) || '0', 10);
-      if (!end) {
-        end = Date.now() + HOURS * 3600 * 1000;
-        localStorage.setItem(KEY, String(end));
-      }
-    } catch (e) { end = Date.now() + HOURS * 3600 * 1000; }
-
-    var hEl = document.getElementById('tH'),
-        mEl = document.getElementById('tM'),
-        sEl = document.getElementById('tS'),
-        stickyT = document.getElementById('stickyTimer');
-    function pad(n){ return n < 10 ? '0' + n : '' + n; }
-    function setOffer(state){
-      window.xreadOffer = state;
-      var src = '';
-      try { src = new URLSearchParams(location.search).get('utm_source') || ''; } catch (e) {}
-      var text = 'Здравствуйте! Хочу заказать книгу «Тетрадь в клетку» ' +
-        (state === 'discount' ? 'по акции за 7 900 тг.' : 'по цене 14 900 тг.') +
-        (src ? ' Источник: ' + src : '');
-      var href = 'https://wa.me/447882521876?text=' + encodeURIComponent(text);
-      document.querySelectorAll('[data-umami-event^="order-click"]').forEach(function(a){
-        a.href = href;
-        a.setAttribute('data-umami-event-offer', state);
+    var src = '';
+    try { src = new URLSearchParams(location.search).get('utm_source') || ''; } catch (e) {}
+    var text = 'Здравствуйте! Хочу заказать книгу «Тетрадь в клетку» за 7 900 тг.' + (src ? ' Источник: ' + src : '');
+    var href = 'https://wa.me/447882521876?text=' + encodeURIComponent(text);
+    document.querySelectorAll('[data-umami-event^="order-click"]').forEach(function(a){
+      a.href = href;
+      a.addEventListener('click', function(){
+        if (window.fbq) fbq('track','Lead');
       });
-    }
-    function expire(){
-      setOffer('expired');
-      document.querySelectorAll('[data-price]').forEach(function(el){ el.textContent = '14 900'; });
-      document.querySelectorAll('[data-old],[data-timer-wrap]').forEach(function(el){ el.style.display = 'none'; });
-      document.querySelectorAll('[data-hero-sub]').forEach(function(el){ el.textContent = '🎁 Хороший подарок близким — сыну или внуку, который начинает своё дело'; });
-      var msg = document.getElementById('expiredMsg'); if (msg) msg.hidden = false;
-      if (stickyT) stickyT.textContent = '';
-    }
-    function tick(){
-      var left = end - Date.now();
-      if (left <= 0) { expire(); return false; }
-      var s = Math.floor(left / 1000);
-      var h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), sec = s % 60;
-      hEl.textContent = pad(h); mEl.textContent = pad(m); sEl.textContent = pad(sec);
-      if (stickyT) stickyT.textContent = 'осталось ' + pad(h) + ':' + pad(m) + ':' + pad(sec);
-      return true;
-    }
-    setOffer('discount');
-    if (tick()) {
-      var iv = setInterval(function(){ if (!tick()) clearInterval(iv); }, 1000);
-    }
-  })();
-  document.querySelectorAll('[data-umami-event^="order-click"]').forEach(function(a){
-    a.addEventListener('click',function(){
-      if (window.fbq) fbq('track','Lead',{offer: window.xreadOffer || 'discount'});
     });
-  });
+  })();
   (function(){
     var btn=document.getElementById('readMoreBtn');
     var more=document.getElementById('moreBox');
