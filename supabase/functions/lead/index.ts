@@ -59,6 +59,7 @@ Deno.serve(async (req: Request) => {
   const phone = String(data.phone ?? "").trim().slice(0, 25);
   const source = String(data.source ?? "").trim().slice(0, 60) || "прямой заход";
   const page = String(data.page ?? "").trim().slice(0, 200);
+  const book = String(data.book ?? "").trim().slice(0, 80) || "Тетрадь в клетку";
   const digits = phone.replace(/\D/g, "");
   if (name.length < 2 || digits.length < 10 || digits.length > 15) {
     return json({ ok: false, error: "invalid" }, 400);
@@ -67,7 +68,7 @@ Deno.serve(async (req: Request) => {
   // 1. сохраняем заявку в базу (если база недоступна, всё равно пробуем Telegram)
   let leadId: string | null = null;
   try {
-    const r = await sb("leads", { method: "POST", json: { name, phone, source, page } });
+    const r = await sb("leads", { method: "POST", json: { name, phone, source, page, book } });
     if (r.ok) {
       const rows = await r.json();
       leadId = rows?.[0]?.id ?? null;
@@ -96,7 +97,7 @@ Deno.serve(async (req: Request) => {
   }
 
   const text =
-    `📚 <b>Новая заявка: «Тетрадь в клетку»</b>\n` +
+    `📚 <b>Новая заявка: «${esc(book)}»</b>\n` +
     `Имя: ${esc(name)}\n` +
     `Телефон: ${esc(phone)}\n` +
     `Источник: ${esc(source)}\n` +
