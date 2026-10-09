@@ -307,7 +307,7 @@ form .btn.wa{margin-top:12px}
         <label for="f-name">Ваше имя</label>
         <input id="f-name" name="name" autocomplete="name" placeholder="Например, Айгуль" required>
         <label for="f-phone">Номер телефона</label>
-        <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
+        <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+код страны и номер" maxlength="25" required>
         <div class="hp" aria-hidden="true"><label>Сайт<input name="website" tabindex="-1" autocomplete="off"></label></div>
         <div class="form-price"><span><s data-old>10&nbsp;900</s><b><span data-price>4&nbsp;900</span>&nbsp;тг</b></span><span class="t" data-timer-wrap>осталось <span data-timer>05:00:00</span></span></div>
         <button class="btn" type="submit" id="f-btn">Заказать книгу&nbsp;→</button>
@@ -389,21 +389,15 @@ if (PIXEL_ID) {
 const qs = new URLSearchParams(location.search);
 const source = qs.get("utm_source") || (qs.get("fbclid") ? "Instagram/Facebook реклама" : (document.referrer ? new URL(document.referrer).hostname : "прямой заход"));
 
-/* маска телефона +7 (XXX) XXX-XX-XX */
+/* международный номер: +код страны и 8–15 цифр, любой формат (пробелы, скобки, дефисы) */
 const phone = document.getElementById("f-phone");
-phone.addEventListener("focus", () => { if (!phone.value) phone.value = "+7 "; });
+phone.addEventListener("focus", () => { if (!phone.value) phone.value = "+"; });
 phone.addEventListener("input", () => {
-  let d = phone.value.replace(/\D/g, "");
-  if (d.startsWith("8")) d = "7" + d.slice(1);
-  if (!d.startsWith("7")) d = "7" + d;
-  d = d.slice(0, 11);
-  let out = "+7";
-  if (d.length > 1) out += " (" + d.slice(1, 4);
-  if (d.length >= 4) out += ") " + d.slice(4, 7);
-  if (d.length >= 7) out += "-" + d.slice(7, 9);
-  if (d.length >= 9) out += "-" + d.slice(9, 11);
-  phone.value = out;
+  let v = phone.value.replace(/[^\d+\s()\-]/g, "");
+  v = v.replace(/(?!^)\+/g, "");
+  phone.value = v;
 });
+phone.addEventListener("blur", () => { if (phone.value.trim() === "+") phone.value = ""; });
 
 const form = document.getElementById("leadForm"), msg = document.getElementById("f-msg"), btn = document.getElementById("f-btn");
 const nameI = document.getElementById("f-name");
@@ -414,8 +408,8 @@ form.addEventListener("submit", async (e) => {
   const name = nameI.value.trim(), digits = phone.value.replace(/\D/g, "");
   let bad = false;
   if (name.length < 2) { nameI.classList.add("err"); bad = true; }
-  if (digits.length !== 11) { phone.classList.add("err"); bad = true; }
-  if (bad) { msg.textContent = "Проверьте имя и номер телефона"; msg.className = "msg e"; return; }
+  if (digits.length < 8 || digits.length > 15) { phone.classList.add("err"); bad = true; }
+  if (bad) { msg.textContent = "Проверьте имя и номер телефона (с кодом страны, например +7 701 123 45 67)"; msg.className = "msg e"; return; }
 
   btn.disabled = true; btn.textContent = "Отправляем…";
   try {
