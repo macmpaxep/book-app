@@ -60,6 +60,8 @@ Deno.serve(async (req: Request) => {
   const source = String(data.source ?? "").trim().slice(0, 60) || "прямой заход";
   const page = String(data.page ?? "").trim().slice(0, 200);
   const book = String(data.book ?? "").trim().slice(0, 80) || "Тетрадь в клетку";
+  const utmCampaign = String(data.utm_campaign ?? "").trim().slice(0, 120);
+  const utmContent = String(data.utm_content ?? "").trim().slice(0, 120);
   const digits = phone.replace(/\D/g, "");
   if (name.length < 2 || !phone.startsWith("+") || digits.length < 8 || digits.length > 15) {
     return json({ ok: false, error: "invalid" }, 400);
@@ -68,7 +70,7 @@ Deno.serve(async (req: Request) => {
   // 1. сохраняем заявку в базу (если база недоступна, всё равно пробуем Telegram)
   let leadId: string | null = null;
   try {
-    const r = await sb("leads", { method: "POST", json: { name, phone, source, page, book } });
+    const r = await sb("leads", { method: "POST", json: { name, phone, source, page, book, utm_campaign: utmCampaign || null, utm_content: utmContent || null } });
     if (r.ok) {
       const rows = await r.json();
       leadId = rows?.[0]?.id ?? null;
@@ -101,6 +103,8 @@ Deno.serve(async (req: Request) => {
     `Имя: ${esc(name)}\n` +
     `Телефон: ${esc(phone)}\n` +
     `Источник: ${esc(source)}\n` +
+    (utmCampaign ? `Кампания: ${esc(utmCampaign)}\n` : "") +
+    (utmContent ? `Объявление: ${esc(utmContent)}\n` : "") +
     `Время: ${new Date().toLocaleString("ru-RU", { timeZone: "Asia/Almaty" })}`;
 
   let tgOk = false;
