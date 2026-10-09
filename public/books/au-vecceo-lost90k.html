@@ -60,6 +60,10 @@ h2{font-family:"Playfair Display",Georgia,serif;font-weight:800;font-size:clamp(
 .story .text{max-width:720px}
 .story p{margin-bottom:18px;font-size:18px}
 .story p.big{font-family:"Playfair Display",serif;font-size:24px;line-height:1.45}
+.story-grid{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:56px;align-items:center}
+.story-photo{margin:0}
+.story-photo img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 36%;border-radius:32px;box-shadow:0 24px 50px rgba(20,24,49,.25)}
+@media (max-width:860px){.story-grid{grid-template-columns:1fr;gap:32px}.story-photo{width:100%;max-width:420px;margin:0 auto}}
 
 /* learn */
 .learn{background:#fff}
@@ -214,6 +218,7 @@ form .btn.wa{margin-top:12px}
 <!-- STORY -->
 <section class="story">
   <div class="wrap">
+    <div class="story-grid">
     <div class="text">
       <div class="kicker">Это не история успеха</div>
       <h2>Это честная история о деньгах, которые пришли — и ушли</h2>
@@ -221,6 +226,8 @@ form .btn.wa{margin-top:12px}
       <p>У меня было 90 000 долларов. Сумма, о которой многие мечтают. Мне казалось, что теперь всё будет по-другому: жизнь налажена, будущее обеспечено.</p>
       <p>Но я не умел обращаться с деньгами. Я не знал, как их сохранить, кому доверять и где остановиться. Деньги ушли — быстрее, чем я успел понять, что происходит.</p>
       <p>Эта книга — не о том, как разбогатеть. Она о том, что происходит с человеком до, во время и после больших денег. О решениях, которые казались правильными. О людях рядом. И о том, как я нашёл в себе силы подняться и стал счастливее, чем был тогда.</p>
+    </div>
+    <figure class="story-photo"><img src="/books/lost90k-author.webp" alt="Олжас Мансапов" width="768" height="1376" loading="lazy"></figure>
     </div>
   </div>
 </section>
