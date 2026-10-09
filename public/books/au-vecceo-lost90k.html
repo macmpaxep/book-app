@@ -408,8 +408,8 @@ form.addEventListener("submit", async (e) => {
   const name = nameI.value.trim(), digits = phone.value.replace(/\D/g, "");
   let bad = false;
   if (name.length < 2) { nameI.classList.add("err"); bad = true; }
-  if (digits.length < 8 || digits.length > 15) { phone.classList.add("err"); bad = true; }
-  if (bad) { msg.textContent = "Проверьте имя и номер телефона (с кодом страны, например +7 701 123 45 67)"; msg.className = "msg e"; return; }
+  if (!phone.value.trim().startsWith("+") || digits.length < 8 || digits.length > 15) { phone.classList.add("err"); bad = true; }
+  if (bad) { msg.textContent = "Номер нужен со знаком «+» и кодом страны, например +7 701 123 45 67"; msg.className = "msg e"; return; }
 
   btn.disabled = true; btn.textContent = "Отправляем…";
   try {

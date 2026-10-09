@@ -61,7 +61,7 @@ Deno.serve(async (req: Request) => {
   const page = String(data.page ?? "").trim().slice(0, 200);
   const book = String(data.book ?? "").trim().slice(0, 80) || "Тетрадь в клетку";
   const digits = phone.replace(/\D/g, "");
-  if (name.length < 2 || digits.length < 8 || digits.length > 15) {
+  if (name.length < 2 || !phone.startsWith("+") || digits.length < 8 || digits.length > 15) {
     return json({ ok: false, error: "invalid" }, 400);
   }
 
