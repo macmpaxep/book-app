@@ -395,13 +395,14 @@ const source = qs.get("utm_source") || (qs.get("fbclid") ? "Instagram/Facebook �
 
 /* международный номер: +код страны и 8–15 цифр, любой формат (пробелы, скобки, дефисы) */
 const phone = document.getElementById("f-phone");
-/* приводим к виду с «+»: «8 701…» → «+7 701…», «0044…» → «+44…», «44 7456…» → «+44 7456…» */
+/* приводим к виду с «+»: «8 701…» и «701…» → «+7 701…», «0044…» → «+44…», «44 7456…» → «+44 7456…» */
 function normalizePhone(raw) {
   let v = raw.trim();
   if (!v || v === "+" || v[0] === "+") return v === "+" ? "" : v;
   const d = v.replace(/\D/g, "");
   if (v.startsWith("00")) return "+" + v.slice(2);
   if (d.length === 11 && d[0] === "8" && !/[01256]/.test(d[1])) return "+7" + v.replace(/^\D*8/, "");
+  if (d.length === 10 && /[79]/.test(d[0])) return "+7 " + v;
   if (/^\d/.test(v)) return "+" + v;
   return v;
 }

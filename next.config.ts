@@ -11,6 +11,10 @@ const nextConfig: NextConfig = {
         source: "/au/vecceo/lost90k",
         destination: "/books/au-vecceo-lost90k.html",
       },
+      {
+        source: "/au/vecceo/neokazakh",
+        destination: "/books/au-vecceo-neokazakh.html",
+      },
     ];
   },
 };
