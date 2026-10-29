@@ -157,6 +157,20 @@ src="https://www.facebook.com/tr?id=1846697113191453&ev=PageView&noscript=1"
   .timer em{font-style:normal;color:var(--gold);font-size:2rem;line-height:62px}
   .expired{color:var(--gold-light);font-family:'Oswald',sans-serif;font-size:1.1rem;letter-spacing:.04em;margin-bottom:24px}
   .sticky small{display:block;font-family:'PT Serif',serif;font-size:.7rem;color:var(--muted);line-height:1.2}
+
+  /* GALLERY */
+  .gallery{overflow:hidden;padding:36px 0 8px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+  .gallery-track{display:flex;width:max-content;animation:gal-move 50s linear infinite;will-change:transform}
+  .gallery-track img{width:270px;aspect-ratio:3/4;object-fit:cover;border-radius:6px;border:1px solid var(--line);display:block;flex-shrink:0;margin-right:14px}
+  @keyframes gal-move{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media (hover:hover){.gallery:hover .gallery-track{animation-play-state:paused}}
+  @media (max-width:820px){
+    .gallery{padding-top:24px}
+    .gallery-track{animation-duration:42s}
+    .gallery-track img{width:64vw;max-width:290px;margin-right:10px}
+  }
+  @media (prefers-reduced-motion:reduce){.gallery-track{animation:none}.gallery{overflow-x:auto}}
+
 </style>
 </head>
 <body>
