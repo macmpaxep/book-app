@@ -22,6 +22,16 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 fbq('init', '1846697113191453');
 fbq('track', 'PageView');
 </script>
+<script>
+  (function(){
+    var t=document.getElementById('galTrack'); if(!t) return;
+    Array.prototype.slice.call(t.children).forEach(function(img){
+      var c=img.cloneNode(true); c.setAttribute('aria-hidden','true'); c.alt=''; c.loading='lazy'; t.appendChild(c);
+    });
+  })();
+</script>
+
+  
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1846697113191453&ev=PageView&noscript=1"
 /></noscript>
@@ -209,46 +219,17 @@ src="https://www.facebook.com/tr?id=1846697113191453&ev=PageView&noscript=1"
 </header>
 
 <!-- 1.5. ПРО ТЕТРАДЬ -->
-<section class="block noline" id="intro">
-  <div class="wrap">
-    <div class="excerpt">
-      <div class="eyebrow">О книге</div>
-      <h2>Одна тетрадь в клетку</h2>
-      <p class="drop">Айкен Муратович ведёт тетрадь. В ней нет учебниковой воды: сделки, ошибки, предательство, долги, чай и анекдоты. Каждая запись это короткая история и вывод, который он сам называет правилом.</p>
-      <p>Одно из них называется «правилом трёх чайников». Почему трёх и почему чайников, мы здесь не скажем. Зато можем показать, как выглядит одна из записей: зима 1992 года, пустой цех и мешок сахара.</p>
-      <p style="color:var(--muted);font-size:.95rem;font-style:italic">«Тетрадь в клетку» — художественное произведение. Айкен Муратович — литературный герой.</p>
-    </div>
-  </div>
-</section>
 
 <!-- 2. ОТРЫВОК -->
-<section class="block tight" id="excerpt">
-  <div class="wrap">
-    <div class="excerpt" id="excerptBox">
-      <div class="eyebrow">Отрывок из книги</div>
-      <h2>Мешок сахара</h2>
-      <p class="meta">Из тетради Айкена Муратовича. Вспоминаю зиму 1992 года.</p>
-
-      <div class="fade" id="fadeBox">
-        <p class="drop">Мне было пятьдесят три, и я стоял в пустом цехе, где не было ни заказов, ни зарплаты, ни директора, потому что директор уехал «на маркшейдерскую консультацию» и не вернулся. В кармане у меня лежали три тысячи рублей, которые за неделю превратились в три тысячи красивых картинок. Дома ждала жена Зауре и трое детей.</p>
-        <p>У меня был один знакомый, бывший снабженец с сахарного завода на юге. Позвонил мне и сказал одну фразу: «Айкен-аға, у нас сахар есть, а вагонов нет. У вас вагоны есть, а сахара нет». Вот и вся теория экономики.</p>
-      </div>
-
-      <div class="more" id="moreBox">
-        <p>Я занял у тёщи пять тысяч, нашёл два вагона через друга-железнодорожника и втроём с водителем Сериком, который пел всю дорогу, поехал за первым грузом. Два раза нам спустили колёса, три раза проверяли документы, и один раз мы так дружно пели в чёрной степи, что мимо проехавший гаишник вежливо нас пропустил, думая, что мы свадьба.</p>
-        <p>А теперь главное. Когда сахар привезли, купцы на барахолке предложили мне цену вдвое ниже той, на которую я рассчитывал. Всё моё тело кричало «бери и беги». Серик даже побледнел. А я сел, заказал чай и просидел там два часа, глядя, кто и по чём берёт конфеты. К вечеру я продал всё по цене в полтора раза выше. Два часа чая заработали мне больше, чем два месяца на заводе.</p>
-        <p class="pull">«Рынок — это не гонка. Рынок — это чайхана, где выигрывает тот, кто успел увидеть больше других, пока другие бегают».</p>
-        <p>Жене Зауре я купил в тот вечер сапоги. Она спросила: «А деньги откуда?» Я ответил: «Сладкие». Она надела сапоги и проходила в них по квартире до поздней ночи, делая вид, что убирается.</p>
-        <p class="tease">А что случилось с «правилом трёх чайников» и с тем самым директором, который не вернулся, читайте в тетради.</p>
-        <div class="after-excerpt">
-          <p style="color:var(--muted);margin-bottom:18px">Это лишь одна запись из тетради.</p>
-          <a class="btn" href="https://wa.me/447861632829?text=Здравствуйте! Как купить книгу?" target="_blank" rel="noopener noreferrer" data-umami-event="order-click-excerpt">Заказать книгу<svg class="wa" aria-hidden="true"><use href="#wa-icon"/></svg></a>
-        </div>
-      </div>
-
-      <div class="read-more-row" id="readMoreRow">
-        <button class="btn ghost" id="readMoreBtn" type="button" data-umami-event="read-more-click">Читать дальше</button>
-      </div>
+<section class="block noline" id="intro" style="padding-bottom:40px">
+  <div class="gallery" aria-label="Фотографии квартиры">
+    <div class="gallery-track" id="galTrack">
+      <img src="/books/gallery/flat-1.webp" alt="Гостиная с окном" width="900" height="1200" loading="eager">
+      <img src="/books/gallery/flat-2.webp" alt="Гостиная и кухня" width="900" height="1200" loading="eager">
+      <img src="/books/gallery/flat-3.webp" alt="Спальня" width="900" height="1200" loading="lazy">
+      <img src="/books/gallery/flat-4.webp" alt="Рабочая зона с ТВ" width="900" height="1200" loading="lazy">
+      <img src="/books/gallery/flat-5.webp" alt="Изголовье кровати" width="900" height="1200" loading="lazy">
+      <img src="/books/gallery/flat-6.webp" alt="Ванная комната" width="900" height="1200" loading="lazy">
     </div>
   </div>
 </section>
