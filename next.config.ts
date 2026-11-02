@@ -15,6 +15,10 @@ const nextConfig: NextConfig = {
         source: "/au/vecceo/neokazakh",
         destination: "/books/au-vecceo-neokazakh.html",
       },
+      {
+        source: "/pay/ca",
+        destination: "/pay/a/index.html",
+      },
     ];
   },
 };
