@@ -16,12 +16,16 @@ const nextConfig: NextConfig = {
         destination: "/books/au-vecceo-neokazakh.html",
       },
       {
-        source: "/pay/ca",
+        source: "/pay/ka",
         destination: "/pay/a/index.html",
       },
       {
-        source: "/pay/cb",
+        source: "/pay/km",
         destination: "/pay/b/index.html",
+      },
+      {
+        source: "/pay/p",
+        destination: "/pay/c/index.html",
       },
     ];
   },
