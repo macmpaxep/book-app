@@ -31,6 +31,10 @@ const nextConfig: NextConfig = {
         source: "/pay/be",
         destination: "/pay/d/index.html",
       },
+      {
+        source: "/pay/bg",
+        destination: "/pay/e/index.html",
+      },
     ];
   },
 };
