@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Оплата заказа</title>
+<style>
+:root{
+  color-scheme: light;
+  --bg:#eef2ef; --ink:#14201e; --muted:#5b6b67; --line:#d3dcd8;
+  --card:#0f3b38; --card-ink:#f2f7f5; --card-muted:#9fc2bc; --accent:#f0b84a; --accent-ink:#2a1d00;
+  --surface:#ffffff; --ok:#1f7a4d;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --bg:#0c1413; --ink:#e8f0ee; --muted:#93a8a3; --line:#25332f;
+    --card:#134843; --card-ink:#f2f7f5; --card-muted:#a9cdc6; --surface:#121d1b; --ok:#5fd29a;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.5}
+main{max-width:30rem;margin:0 auto;padding:2rem 1.25rem 3rem}
+h1{font-size:1.75rem;line-height:1.15;margin:0 0 .5rem;letter-spacing:-.01em}
+.lead{color:var(--muted);margin:0 0 1.75rem}
+.card{background:var(--card);color:var(--card-ink);border-radius:1.25rem;padding:1.5rem 1.25rem 1.25rem;
+  box-shadow:0 1px 0 rgba(255,255,255,.08) inset}
+.card dt{font-size:.85rem;color:var(--card-muted);margin:0 0 .25rem}
+.card dd{margin:0}
+.num{font-size:clamp(1.05rem,6vw,1.85rem);font-weight:650;letter-spacing:.05em;
+  font-variant-numeric:tabular-nums;white-space:nowrap}
+.row.stack{flex-direction:column;align-items:stretch}
+.row.stack>div{min-width:0}
+.row.stack button{width:100%}
+.holder{font-size:1.15rem;font-weight:600;letter-spacing:.04em}
+.row{display:flex;align-items:flex-end;justify-content:space-between;gap:.75rem;margin-bottom:1.25rem}
+.row:last-child{margin-bottom:0}
+button{font:inherit;cursor:pointer;border:0;border-radius:.75rem;padding:.6rem 1rem;min-height:2.75rem;
+  background:var(--accent);color:var(--accent-ink);font-weight:650;white-space:nowrap}
+button:hover{filter:brightness(1.06)}
+button:focus-visible{outline:3px solid var(--card-ink);outline-offset:2px}
+button.done{background:var(--ok);color:#fff}
+.steps{list-style:none;counter-reset:s;margin:2rem 0 0;padding:0}
+.steps li{counter-increment:s;position:relative;padding:0 0 1.1rem 2.5rem}
+.steps li::before{content:counter(s);position:absolute;left:0;top:.05rem;width:1.75rem;height:1.75rem;
+  border-radius:50%;border:1.5px solid var(--line);background:var(--surface);
+  display:grid;place-items:center;font-size:.85rem;font-weight:650}
+.steps strong{display:block}
+.steps span{color:var(--muted);font-size:.95rem}
+.note{margin-top:.5rem;padding:.9rem 1rem;border:1px solid var(--line);border-radius:.75rem;
+  background:var(--surface);font-size:.93rem;color:var(--muted)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (prefers-reduced-motion:no-preference){button{transition:background .15s,filter .15s}}
+</style>
+</head>
+<body>
+<main>
+  <h1>Оплата заказа</h1>
+  <p class="lead">Переведите сумму заказа на карту из приложения вашего банка.</p>
+
+  <dl class="card">
+    <div class="row stack">
+      <div>
+        <dt>Номер карты</dt>
+        <dd class="num" id="num">4549&nbsp;2406&nbsp;3205&nbsp;7727</dd>
+      </div>
+      <button type="button" data-copy="4549240632057727" data-label="Скопировать">Скопировать</button>
+    </div>
+    <div class="row">
+      <div>
+        <dt>Получатель</dt>
+        <dd class="holder" id="holder">AIBAR ABILOV</dd>
+      </div>
+      <button type="button" data-copy="AIBAR ABILOV" data-label="Скопировать">Скопировать</button>
+    </div>
+  </dl>
+
+  <ol class="steps">
+    <li><strong>Скопируйте номер карты</strong><span>Кнопка выше копирует номер без пробелов.</span></li>
+    <li><strong>Переведите сумму заказа</strong><span>В приложении банка выберите перевод по номеру карты.</span></li>
+    <li><strong>Отправьте чек в чат</strong><span>Мы подтвердим оплату и оформим заказ.</span></li>
+  </ol>
+
+  <p class="note">Стоимость книги "Тетрадь в клетку" 9900тг со скидкой. После оплаты отправьте ваш точный адрес для доставки книги, а также ваше ФИО для регистрации в розыгрыше.</p>
+  <div class="sr" role="status" aria-live="polite" id="live"></div>
+</main>
+
+<script>
+(function(){
+  var num=document.getElementById('num');
+  function fit(){
+    num.style.fontSize='';
+    var fs=parseFloat(getComputedStyle(num).fontSize);
+    while(num.scrollWidth>num.parentNode.clientWidth&&fs>10){fs-=1;num.style.fontSize=fs+'px';}
+  }
+  fit();window.addEventListener('resize',fit);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+  var live=document.getElementById('live');
+  function fallback(text){
+    var t=document.createElement('textarea');
+    t.value=text;t.setAttribute('readonly','');t.style.position='fixed';t.style.opacity='0';
+    document.body.appendChild(t);t.select();
+    var ok=false;try{ok=document.execCommand('copy');}catch(e){}
+    document.body.removeChild(t);return ok;
+  }
+  function copy(text){
+    if(navigator.clipboard&&window.isSecureContext){
+      return navigator.clipboard.writeText(text).then(function(){return true;},function(){return fallback(text);});
+    }
+    return Promise.resolve(fallback(text));
+  }
+  document.querySelectorAll('button[data-copy]').forEach(function(b){
+    b.addEventListener('click',function(){
+      copy(b.getAttribute('data-copy')).then(function(ok){
+        b.textContent=ok?'Скопировано':'Не удалось';
+        b.classList.toggle('done',ok);
+        live.textContent=ok?'Скопировано':'Не удалось скопировать, выделите текст вручную';
+        setTimeout(function(){b.textContent=b.getAttribute('data-label');b.classList.remove('done');},1800);
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
