@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
-        source: "/au/vecceo/books/id1",
+        source: "/ventu/notebook",
         destination: "/books/au-vecceo-id1.html",
       },
       {
