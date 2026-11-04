@@ -17,6 +17,7 @@ header p{margin:12px 0 0;color:var(--muted);font-size:1.05rem}
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 16px;padding-bottom:56px}
 .book{display:flex;flex-direction:column}
 .book img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:6px;background:#0002}
+.book>a{display:block}.book>a:hover img{opacity:.9}
 .book h2{margin:14px 0 0;font:700 1.05rem/1.25 Georgia,"Times New Roman",serif}
 .sub{margin:4px 0 0;color:var(--muted);font-size:.9rem;line-height:1.35}
 .author{margin:8px 0 6px;font-weight:600;font-size:.9rem}
@@ -121,5 +122,6 @@ function route(){
   else{det.hidden=true;list.hidden=false;document.title="Издательство Ventu Press"}
   window.scrollTo(0,0);
 }
+document.querySelectorAll(".book").forEach(function(c){var i=c.querySelector("img"),a=document.createElement("a");a.href="#"+c.dataset.id;a.setAttribute("aria-label",i.alt);i.parentNode.insertBefore(a,i);a.appendChild(i)});
 window.addEventListener("hashchange",route);route();
 </script></body></html>
