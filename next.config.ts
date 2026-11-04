@@ -3,6 +3,10 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   async rewrites() {
     return [
+       {
+        source: "/ventu",
+        destination: "/books/landing/index.html",
+      },
       {
         source: "/ventu/notebook",
         destination: "/books/au-vecceo-id1.html",
