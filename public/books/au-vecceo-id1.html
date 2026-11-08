@@ -128,6 +128,10 @@ src="https://www.facebook.com/tr?id=1846697113191453&ev=PageView&noscript=1"
   footer{padding:48px 0 120px;text-align:center;color:var(--muted);font-size:.88rem}
   .legal-note{margin-top:18px;font-size:11px;line-height:1.4;color:#7a7465}
   .legal-note a{color:inherit;text-decoration:underline}
+  .pp-online{margin-top:24px;padding-top:20px;border-top:1px solid var(--line);text-align:center}
+  .pp-online .ppnote{font-size:.92rem;color:var(--muted);margin-bottom:14px}
+  .pp-online .ppbox{max-width:420px;margin:0 auto}
+  .pp-online .ppfail{font-size:.88rem;color:var(--muted);margin-top:10px}
   footer .gold-text{font-family:'Oswald',sans-serif;letter-spacing:.15em;font-weight:700}
 
   /* STICKY MOBILE CTA */
@@ -295,6 +299,10 @@ src="https://www.facebook.com/tr?id=1846697113191453&ev=PageView&noscript=1"
       </ul>
       <a class="btn" href="https://wa.me/77753928056?text=Здравствуйте! Как купить книгу?" target="_blank" rel="noopener noreferrer" data-umami-event="order-click-price">Заказать книгу<svg class="wa" aria-hidden="true"><use href="#wa-icon"/></svg></a>
       <p class="price-note">Напишите нам в WhatsApp: договоримся об оплате и доставке.</p>
+      <div class="pp-online" id="pay-online" data-book="notebook" hidden>
+        <p class="ppnote">Или оплатите картой онлайн: откроется защищённая страница PayPal (карта, Apple Pay или аккаунт PayPal). Сумма на ней указывается в долларах США, адрес доставки укажите там же.</p>
+        <div class="ppbox"><div data-ppbox></div><p class="ppfail" data-ppfail hidden>Не удалось загрузить кнопку оплаты. Обновите страницу или напишите нам в WhatsApp.</p></div>
+      </div>
     </div>
   </div>
 </section>
@@ -390,5 +398,6 @@ src="https://www.facebook.com/tr?id=1846697113191453&ev=PageView&noscript=1"
     });
   })();
 </script>
+<script src="/books/ventu/paypal.js"></script>
 </body>
 </html>
