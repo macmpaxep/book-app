@@ -31,4 +31,8 @@
   a.textContent = "Купить";
   a.style.cssText = "display:block;text-align:center;background:#0070ba;color:#fff;font:600 18px/1 system-ui,sans-serif;padding:16px;border-radius:12px;text-decoration:none";
   box.appendChild(a);
+  var h = document.createElement("p");
+  h.innerHTML = "Страница PayPal откроется на английском. Нажмите значок перевода <b>(🌐 / «Перевести»)</b> в адресной строке или в меню браузера, и она станет русской.";
+  h.style.cssText = "margin:10px 0 0;font:14px/1.4 system-ui,sans-serif;opacity:.75;text-align:center";
+  box.appendChild(h);
 })();
