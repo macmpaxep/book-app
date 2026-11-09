@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Оплата книги — Ventu Press</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f5f6fa;color:#14171f;font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+.w{max-width:480px;margin:0 auto;padding:20px 16px 40px}
+.back{display:inline-block;margin-bottom:14px;color:#555;text-decoration:none;font-size:15px}
+.card{background:#fff;border-radius:16px;padding:18px;box-shadow:0 2px 14px rgba(0,0,0,.06)}
+.book{display:flex;gap:14px;align-items:center}
+.book img{width:84px;border-radius:8px;display:block}
+.book b{display:block;font-size:18px;line-height:1.25}
+.book span{color:#555}
+h2{font-size:20px;margin:22px 0 6px}
+.warn{background:#fff6dd;border:1px solid #f0d27a;border-radius:12px;padding:14px;margin:16px 0}
+.warn b{display:block;margin-bottom:4px}
+ol{margin:8px 0 0;padding-left:22px}
+ol li{margin:8px 0}
+.go{display:block;text-align:center;background:#0070ba;color:#fff;font-weight:600;font-size:18px;padding:16px;border-radius:12px;text-decoration:none;margin-top:18px}
+.alt{margin-top:14px;text-align:center;color:#555;font-size:15px}
+.alt a{color:#0070ba}
+</style>
+</head>
+<body>
+<div class="w">
+<a class="back" id="back" href="/ventu">‹ Назад к книге</a>
+<div class="card">
+  <div class="book"><img id="img" alt=""><div><b id="title"></b><span id="price"></span></div></div>
+
+  <div class="warn">
+    <b>Страница оплаты PayPal откроется на английском</b>
+    Её можно перевести на русский одним нажатием:
+    <ol>
+      <li><b>iPhone, Safari:</b> нажмите значок слева в адресной строке (рядом с <i>paypal.com</i>) и выберите «Перевести на русский».</li>
+      <li><b>Android, Chrome:</b> нажмите «⋮» вверху справа и выберите «Перевести».</li>
+      <li><b>Компьютер, Chrome:</b> значок перевода справа в адресной строке.</li>
+    </ol>
+  </div>
+
+  <h2>Что вводить</h2>
+  <div style="color:#555;font-size:15px">Номер карты, срок действия, три цифры на обороте (CSC), имя и фамилию латиницей, адрес, телефон и почту.</div>
+
+  <a class="go" id="go" href="#" target="_blank" rel="noopener">Перейти к оплате</a>
+  <div class="alt">Не получается? <a href="/ventu" id="alt">Оплатить переводом на карту</a></div>
+</div>
+</div>
+<script>
+(function(){
+  var BOOKS={
+    "mission-2":{title:"Миссия выполнима 2.0",price:"18,75 $ (USD)",id:"ENGZK52365MSA"}
+  };
+  var m=location.pathname.match(/\/ventu\/([^\/]+)\/oplata/);
+  var slug=m&&m[1], b=BOOKS[slug];
+  if(!b){location.replace("/ventu");return}
+  document.getElementById("title").textContent=b.title;
+  document.getElementById("price").textContent=b.price;
+  document.getElementById("img").src="/books/ventu/img/"+slug+".jpg";
+  document.getElementById("go").href="https://www.paypal.com/ncp/payment/"+b.id+"?locale.x=ru_RU&country.x=RU";
+  var page="/ventu/"+slug;
+  document.getElementById("back").href=page;
+  document.getElementById("alt").href=page+"#pay-card";
+})();
+</script>
+</body>
+</html>
