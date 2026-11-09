@@ -22,15 +22,24 @@
   if (!id) return;
 
   var box = sec.querySelector("[data-ppbox]");
+  var fail = sec.querySelector("[data-ppfail]");
+  box.id = "paypal-container-" + id;
   sec.hidden = false;
-  // прямая ссылка PayPal (вариант «одна кнопка»), страница оплаты на русском
-  var a = document.createElement("a");
-  a.href = "/ventu/" + sec.getAttribute("data-book") + "/oplata";
-  a.textContent = "Купить";
-  a.style.cssText = "display:block;text-align:center;background:#0070ba;color:#fff;font:600 18px/1 system-ui,sans-serif;padding:16px;border-radius:12px;text-decoration:none";
-  box.appendChild(a);
+
+  // подсказка над виджетом: форма PayPal на английском
   var h = document.createElement("p");
-  h.innerHTML = "Дальше откроется страница оплаты PayPal. Она на английском, на следующем шаге мы покажем, как перевести её на русский.";
-  h.style.cssText = "margin:10px 0 0;font:14px/1.4 system-ui,sans-serif;opacity:.75;text-align:center";
-  box.appendChild(h);
+  h.innerHTML = "Форма оплаты PayPal на английском. Если нужен русский, переведите страницу средствами браузера или оплатите переводом на карту ниже.";
+  h.style.cssText = "margin:0 0 10px;font:14px/1.4 system-ui,sans-serif;opacity:.75";
+  box.parentNode.insertBefore(h, box);
+
+  function render() {
+    try { paypal.HostedButtons({ hostedButtonId: id }).render("#" + box.id); }
+    catch (e) { fail.hidden = false; }
+  }
+  if (window.paypal && paypal.HostedButtons) { render(); return; }
+  var s = document.createElement("script");
+  s.src = CONFIG.sdk;
+  s.onload = render;
+  s.onerror = function () { fail.hidden = false; };
+  document.head.appendChild(s);
 })();
