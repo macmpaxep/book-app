@@ -22,18 +22,13 @@
   if (!id) return;
 
   var box = sec.querySelector("[data-ppbox]");
-  var fail = sec.querySelector("[data-ppfail]");
-  box.id = "paypal-container-" + id;
   sec.hidden = false;
-
-  function render() {
-    try { paypal.HostedButtons({ hostedButtonId: id }).render("#" + box.id); }
-    catch (e) { fail.hidden = false; }
-  }
-  if (window.paypal && paypal.HostedButtons) { render(); return; }
-  var s = document.createElement("script");
-  s.src = CONFIG.sdk;
-  s.onload = render;
-  s.onerror = function () { fail.hidden = false; };
-  document.head.appendChild(s);
+  // прямая ссылка PayPal (вариант «одна кнопка»), страница оплаты на русском
+  var a = document.createElement("a");
+  a.href = "https://www.paypal.com/ncp/payment/" + id + "?locale.x=ru_RU&country.x=RU";
+  a.target = "_blank";
+  a.rel = "noopener";
+  a.textContent = "Купить";
+  a.style.cssText = "display:block;text-align:center;background:#0070ba;color:#fff;font:600 18px/1 system-ui,sans-serif;padding:16px;border-radius:12px;text-decoration:none";
+  box.appendChild(a);
 })();
