@@ -16,10 +16,6 @@ const nextConfig: NextConfig = {
         destination: "/books/ventu/:slug.html",
       },
       {
-        source: "/ventu/:slug(mission-2)/oplata",
-        destination: "/books/ventu/oplata.html",
-      },
-      {
         source: "/au/vecceo/lost90k",
         destination: "/books/au-vecceo-lost90k.html",
       },
