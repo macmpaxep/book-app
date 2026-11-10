@@ -65,6 +65,8 @@ src="https://www.facebook.com/tr?id=1846697113191453&ev=PageView&noscript=1"
   .hero::before{content:"";position:absolute;inset:-40px;background:url('/books/cover-id1.jpg') center 30%/cover no-repeat;filter:blur(18px) brightness(.35) saturate(1.1);transform:scale(1.1)}
   .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),var(--bg) 98%)}
   .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding-top:64px;padding-bottom:84px}
+  .navback{position:absolute;top:14px;left:22px;z-index:3;display:inline-block;padding:8px 14px;border:1px solid rgba(255,255,255,.35);border-radius:999px;background:rgba(0,0,0,.45);color:#fff;text-decoration:none;font-weight:600;font-size:.95rem;backdrop-filter:blur(6px)}
+  .navback:hover{border-color:var(--gold);color:var(--gold)}
   .brand{font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:.15em;color:var(--gold);font-size:.95rem;margin-bottom:44px;text-transform:uppercase}
   .kicker{display:inline-block;border:1px solid var(--gold-deep);color:var(--gold-light);padding:6px 16px;font-size:.85rem;letter-spacing:.2em;margin-bottom:26px}
   .hero h1{font-size:clamp(2.2rem,5.2vw,4rem);line-height:1.08;font-weight:700;text-transform:none;letter-spacing:0}
@@ -142,7 +144,8 @@ src="https://www.facebook.com/tr?id=1846697113191453&ev=PageView&noscript=1"
 
   @media (max-width:820px){
     body{font-size:17px}
-    .hero .wrap{grid-template-columns:1fr;gap:0;padding-top:28px;padding-bottom:48px}
+    .hero .wrap{grid-template-columns:1fr;gap:0;padding-top:64px;padding-bottom:48px}
+    .navback{left:16px;top:12px}
     .brand{margin-bottom:18px}
     .kicker{margin-bottom:16px}
     .cover--d{display:none}
@@ -199,6 +202,7 @@ src="https://www.facebook.com/tr?id=1846697113191453&ev=PageView&noscript=1"
 
 <!-- 1. ПЕРВЫЙ ЭКРАН -->
 <header class="hero">
+  <a class="navback" href="/ventu">‹ Все книги</a>
   <div class="wrap">
     <div>
       <div class="brand">XRead · Издательство "Ventu Press"</div>
@@ -213,7 +217,6 @@ src="https://www.facebook.com/tr?id=1846697113191453&ev=PageView&noscript=1"
       <div class="actions">
         <a class="btn" href="https://wa.me/77753928056?text=Здравствуйте! Как купить книгу?" target="_blank" rel="noopener noreferrer" data-umami-event="order-click-hero">Заказать книгу<svg class="wa" aria-hidden="true"><use href="#wa-icon"/></svg></a>
         <a class="btn ghost" href="#intro">Фотографии квартиры</a>
-        <a class="btn ghost" href="/ventu">Все книги</a>
       </div>
       <p class="note"><s data-old>15&nbsp;900</s> <b data-price>9&nbsp;900</b>&nbsp;тг · заказ в WhatsApp</p>
     </div>
@@ -323,7 +326,7 @@ src="https://www.facebook.com/tr?id=1846697113191453&ev=PageView&noscript=1"
       </details>
       <details>
         <summary>Как быстро я получу книгу?</summary>
-        <p>Срок доставки зависит от вашей локации. Точные сроки назовём при подтверждении заказа.</p>
+        <p>Доставка в течение 2-3 дней.</p>
       </details>
       <details>
         <summary>Для кого эта книга?</summary>
